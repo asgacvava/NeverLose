@@ -11,15 +11,10 @@ do
 	getfenv()[Constant] = getfenv()[Constant] or function(f) return f end;
 end;
 
-print("1")
 cloneref = cloneref or function(i) return i end;
-print("2")
 gethui = gethui or get_hidden_gui;
-print("3")
 getcustomasset = getcustomasset or getsynasset;
-print("4")
 getgenv = getgenv or getfenv;
-print("5")
 
 local LOAD_ENV = LPH_NO_VIRTUALIZE(function()
 	if game:GetService('RunService'):IsStudio() then
