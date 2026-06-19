@@ -3930,7 +3930,7 @@ function NeverLose:CreateWindow(Config)
 	local TopLogoDecorator = Instance.new("ImageLabel")
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
-	TopLogoDecorator.Image = "rbxassetid://6319951708" -- Explicitly forced to your requested asset ID
+	TopLogoDecorator.Image = NeverLose.GlobalLogo
 	TopLogoDecorator.ImageColor3 = NeverLose.IconColor
 	TopLogoDecorator.Size = UDim2.fromOffset(80, 80)
 	TopLogoDecorator.AnchorPoint = Vector2.new(0.5, 1)
