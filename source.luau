@@ -3915,7 +3915,6 @@ function NeverLose:CreateWindow(Config)
 
 	-- Floating Top Logo Decorator (inherits window movement)
 	local TopLogoDecorator = Instance.new("ImageLabel")
-	TopLogoDecorator.Name = NeverLose.RandomString()
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
 	TopLogoDecorator.Image = Window.Logo
@@ -3924,11 +3923,13 @@ function NeverLose:CreateWindow(Config)
 	TopLogoDecorator.AnchorPoint = Vector2.new(0.5, 1)
 	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, -15)
 	TopLogoDecorator.ZIndex = WindowFrame.ZIndex + 1
-	TopLogoDecorator.ImageTransparency = 1
+	TopLogoDecorator.ImageTransparency = 0
 
-	if not NeverLose.EnabledBlur then
-		WindowFrame.BackgroundTransparency = 0.0255
-	end;
+	Window.Signal:Connect(function(visible)
+		NeverLose.PlayAnimate(TopLogoDecorator, SlowyTween, {
+			ImageTransparency = visible and 0 or 1
+		})
+	end)
 
 	local renderParentWindow = LPH_NO_VIRTUALIZE(function()
 		if Window.__3DRender then
