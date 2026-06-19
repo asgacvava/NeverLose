@@ -214,13 +214,16 @@ if getcustomasset then
 		makefolder(dir);
 	end;
 
-	-- Use a unique name for the custom logo to prevent conflicts
-	local logoPath = dir..'/'..'custom_catbox_logo.png'
+	-- Dynamically hash the URL into a safe filename.
+	-- If you change the URL on Github, the filename changes, forcing an instant redownload.
+	local logoUrl = NeverLose.GlobalLogo
+	local logoName = logoUrl:gsub("[^%w]", "") .. ".png"
+	local logoPath = dir..'/'..logoName
 
 	-- Download and register the custom Catbox logo
 	pcall(function()
 		if not isfile(logoPath) then
-			local byte = game:HttpGet("https://files.catbox.moe/p2p4qr.png");
+			local byte = game:HttpGet(logoUrl .. "?nocache=" .. tostring(math.random(1, 100000)));
 			if byte and not byte:find("404") and not byte:find("Not Found") then
 				writefile(logoPath, byte);
 			end;
