@@ -3908,7 +3908,7 @@ function NeverLose:CreateWindow(Config)
 	WindowFrame.BackgroundTransparency = 0.055
 	WindowFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	WindowFrame.BorderSizePixel = 0
-	WindowFrame.ClipsDescendants = true
+	WindowFrame.ClipsDescendants = false -- Changed to false to allow the logo to render outside the frame
 	WindowFrame.Position = UDim2.new(255, 0, 255, 0)
 	WindowFrame.Size = Window.Size
 	WindowFrame.Active = true;
@@ -3917,7 +3917,7 @@ function NeverLose:CreateWindow(Config)
 	local TopLogoDecorator = Instance.new("ImageLabel")
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
-	TopLogoDecorator.Image = Window.Logo
+	TopLogoDecorator.Image = "rbxassetid://6319951708" -- Explicitly forced to your requested asset ID
 	TopLogoDecorator.ImageColor3 = NeverLose.IconColor
 	TopLogoDecorator.Size = UDim2.fromOffset(80, 80)
 	TopLogoDecorator.AnchorPoint = Vector2.new(0.5, 1)
