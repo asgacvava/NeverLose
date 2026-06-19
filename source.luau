@@ -3934,7 +3934,7 @@ function NeverLose:CreateWindow(Config)
 	TopLogoDecorator.ImageColor3 = NeverLose.IconColor
 	TopLogoDecorator.Size = UDim2.fromOffset(80, 80)
 	TopLogoDecorator.AnchorPoint = Vector2.new(0.5, 1)
-	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, -15)
+	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, 0)
 	TopLogoDecorator.ZIndex = WindowFrame.ZIndex + 1
 	TopLogoDecorator.ImageTransparency = 0
 
