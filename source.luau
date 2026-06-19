@@ -3930,14 +3930,21 @@ function NeverLose:CreateWindow(Config)
 	WindowFrame.Active = true;
 
 	-- Top Logo Decorator (Moves and fades with the window)
+	-- Top Logo Decorator (Moves and fades with the window)
 	local TopLogoDecorator = Instance.new("ImageLabel")
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
 	TopLogoDecorator.Image = NeverLose.GlobalLogo
 	TopLogoDecorator.ImageColor3 = NeverLose.IconColor
-	TopLogoDecorator.Size = UDim2.fromOffset(80, 80)
+	
+	-- 1. Changed size to 120x120 (adjust these two numbers to make it larger or smaller)
+	TopLogoDecorator.Size = UDim2.fromOffset(120, 120) 
+	
 	TopLogoDecorator.AnchorPoint = Vector2.new(0.5, 1)
-	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, 0)
+	
+	-- 2. Changed Y-offset to 30 (positive numbers push the logo down into the window frame)
+	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, 30) 
+	
 	TopLogoDecorator.ZIndex = WindowFrame.ZIndex + 1
 	TopLogoDecorator.ImageTransparency = 0
 
