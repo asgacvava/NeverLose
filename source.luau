@@ -204,7 +204,7 @@ NeverLose.RegisiteryColor = {};
 NeverLose.NameRegisitry = {};
 NeverLose.IsMosueOverOtherFrame = false;
 -- Safe Roblox fallback using rbxthumb format
-NeverLose.GlobalLogo = "rbxthumb://type=Asset&id=6319951708&w=420&h=420";
+NeverLose.GlobalLogo = "https://files.catbox.moe/j793mq.png";
 NeverLose.ImageColorMapping = "rbxassetid://4155801252";
 
 if getcustomasset then
