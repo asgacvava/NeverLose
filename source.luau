@@ -220,7 +220,7 @@ if getcustomasset then
 	-- Download and register the custom Catbox logo
 	pcall(function()
 		if not isfile(logoPath) then
-			local byte = game:HttpGet("https://files.catbox.moe/j793mq.png");
+			local byte = game:HttpGet("https://files.catbox.moe/p2p4qr.png");
 			if byte and not byte:find("404") and not byte:find("Not Found") then
 				writefile(logoPath, byte);
 			end;
