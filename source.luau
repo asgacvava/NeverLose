@@ -4172,6 +4172,21 @@ function NeverLose:CreateWindow(Config)
 	HeadFrame.BorderSizePixel = 0
 	HeadFrame.Size = UDim2.new(1, 0, 0, 50)
 	HeadFrame.ZIndex = 7
+local TopImage = Instance.new("ImageLabel")
+	TopImage.Name = NeverLose.RandomString()
+	TopImage.Parent = HeadFrame
+	TopImage.BackgroundTransparency = 1
+	TopImage.Size = UDim2.new(1, -20, 0, 50)
+	TopImage.Position = UDim2.new(0, 10, 0, 10)
+	TopImage.Image = NeverLose.GlobalLogo
+	TopImage.ScaleType = Enum.ScaleType.Fit
+	TopImage.ZIndex = 8
+
+	NeverLose:AddSignal(Window.Signal:Connect(function(value)
+		NeverLose.PlayAnimate(TopImage, SlowyTween, {
+			ImageTransparency = value and 0 or 1
+		})
+	end))
 
 	LogoImage.Name = NeverLose.RandomString();
 	LogoImage.Parent = HeadFrame
