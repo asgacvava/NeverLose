@@ -203,7 +203,6 @@ NeverLose.MainColor = Color3.fromRGB(8, 8, 13);
 NeverLose.RegisiteryColor = {};
 NeverLose.NameRegisitry = {};
 NeverLose.IsMosueOverOtherFrame = false;
--- Safe Roblox fallback using rbxthumb format
 NeverLose.GlobalLogo = "https://files.catbox.moe/j793mq.png";
 NeverLose.ImageColorMapping = "rbxassetid://4155801252";
 
@@ -215,35 +214,31 @@ if getcustomasset then
 		makefolder(dir);
 	end;
 
-	-- Clean up legacy corrupt/404 files from previous failed runs
-	if isfile(dir..'/'..'logo.png') then
-		local content = readfile(dir..'/'..'logo.png')
-		if content:len() < 1000 or content:find("404") or content:find("Not Found") then
-			delfile(dir..'/'..'logo.png')
-		end
-	end
+	-- Use a unique name for the custom logo to prevent conflicts
+	local logoPath = dir..'/'..'custom_catbox_logo.png'
 
+	-- Download and register the custom Catbox logo
+	pcall(function()
+		if not isfile(logoPath) then
+			local byte = game:HttpGet("https://files.catbox.moe/j793mq.png");
+			if byte and not byte:find("404") and not byte:find("Not Found") then
+				writefile(logoPath, byte);
+			end;
+			task.wait();
+		end;
+
+		if isfile(logoPath) and readfile(logoPath):len() > 100 then
+			NeverLose.GlobalLogo = getcustomasset(logoPath)
+		end;
+	end);
+
+	-- Clean up legacy corrupt files for other assets
 	if isfile(dir..'/'..'saturation_value_gradient.png') then
 		local content = readfile(dir..'/'..'saturation_value_gradient.png')
 		if content:len() < 1000 or content:find("404") or content:find("Not Found") then
 			delfile(dir..'/'..'saturation_value_gradient.png')
 		end
 	end
-
-	-- Download and register clean assets
-	pcall(function()
-		if not isfile(dir..'/'..'logo.png') then
-			local byte = game:HttpGet(string.format(link,'logo.png'));
-			if byte and not byte:find("404") and not byte:find("Not Found") then
-				writefile(dir..'/'..'logo.png' , byte);
-			end;
-			task.wait();
-		end;
-
-		if isfile(dir..'/'..'logo.png') then
-			NeverLose.GlobalLogo = getcustomasset(dir..'/'..'logo.png')
-		end;
-	end);
 
 	pcall(function()
 		if not isfile(dir..'/'..'saturation_value_gradient.png') then
