@@ -203,23 +203,40 @@ NeverLose.MainColor = Color3.fromRGB(8, 8, 13);
 NeverLose.RegisiteryColor = {};
 NeverLose.NameRegisitry = {};
 NeverLose.IsMosueOverOtherFrame = false;
-NeverLose.GlobalLogo = "rbxassetid://6319951708";
+-- Safe Roblox fallback using rbxthumb format
+NeverLose.GlobalLogo = "rbxthumb://type=Asset&id=6319951708&w=420&h=420";
 NeverLose.ImageColorMapping = "rbxassetid://4155801252";
 
-
 if getcustomasset then
-	local link = "https://raw.githubusercontent.com/asgacvava/NeverLose/main/assets/log1o.png";
+	local link = "https://raw.githubusercontent.com/asgacvava/NeverLose/main/assets/%s";
 	local dir = 'NLAssets';
 
 	if not isfolder(dir) then
 		makefolder(dir);
 	end;
 
+	-- Clean up legacy corrupt/404 files from previous failed runs
+	if isfile(dir..'/'..'logo.png') then
+		local content = readfile(dir..'/'..'logo.png')
+		if content:len() < 1000 or content:find("404") or content:find("Not Found") then
+			delfile(dir..'/'..'logo.png')
+		end
+	end
+
+	if isfile(dir..'/'..'saturation_value_gradient.png') then
+		local content = readfile(dir..'/'..'saturation_value_gradient.png')
+		if content:len() < 1000 or content:find("404") or content:find("Not Found") then
+			delfile(dir..'/'..'saturation_value_gradient.png')
+		end
+	end
+
+	-- Download and register clean assets
 	pcall(function()
 		if not isfile(dir..'/'..'logo.png') then
 			local byte = game:HttpGet(string.format(link,'logo.png'));
-
-			writefile(dir..'/'..'logo.png' , byte);
+			if byte and not byte:find("404") and not byte:find("Not Found") then
+				writefile(dir..'/'..'logo.png' , byte);
+			end;
 			task.wait();
 		end;
 
@@ -231,8 +248,9 @@ if getcustomasset then
 	pcall(function()
 		if not isfile(dir..'/'..'saturation_value_gradient.png') then
 			local byte = game:HttpGet(string.format(link,'saturation_value_gradient.png'));
-
-			writefile(dir..'/'..'saturation_value_gradient.png' , byte);
+			if byte and not byte:find("404") and not byte:find("Not Found") then
+				writefile(dir..'/'..'saturation_value_gradient.png' , byte);
+			end;
 			task.wait();
 		end;
 
