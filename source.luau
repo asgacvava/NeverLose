@@ -3745,22 +3745,7 @@ function NeverLose:RegisiterItem(Frame: Frame , Signel)
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = UserFrame
        
-        local TopImage = Instance.new("ImageLabel")
-	TopImage.Name = NeverLose.RandomString()
-	TopImage.Parent = HeadFrame
-	TopImage.BackgroundTransparency = 1
-	TopImage.Size = UDim2.new(1, -20, 0, 50) -- Fills width of the bar with a height of 50
-	TopImage.Position = UDim2.new(0, 10, 0, 10) -- Centered at the very top
-	TopImage.Image = NeverLose.GlobalLogo
-	TopImage.ScaleType = Enum.ScaleType.Fit
-	TopImage.ZIndex = 8
-
-	-- Fade image out when UI is closed
-	NeverLose:AddSignal(Window.Signal:Connect(function(value)
-		NeverLose.PlayAnimate(TopImage, SlowyTween, {
-			ImageTransparency = value and 0 or 1
-		})
-	end))
+     
 		LogoImage.Name = NeverLose.RandomString();
 		LogoImage.Parent = UserFrame
 		LogoImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
