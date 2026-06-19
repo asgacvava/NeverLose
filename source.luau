@@ -5,7 +5,7 @@
     Discord: https://arceney.win/discord
     Other-Projects: https://4lpaca.win
 ]]
-print("123fasc")
+print("dafag")
 do
 	local Constant = 'L'..'P'..'H'..'_NO_VIRTUALIZE';
 	getfenv()[Constant] = getfenv()[Constant] or function(f) return f end;
