@@ -207,7 +207,7 @@ NeverLose.GlobalLogo = "rbxassetid://120358385035996";
 NeverLose.ImageColorMapping = "rbxassetid://4155801252";
 
 if getcustomasset then
-	local link = "https://github.com/asgacvava/NeverLose/blob/main/assets/%s?raw=true";
+	local link = "https://raw.githubusercontent.com/asgacvava/NeverLose/main/assets/logo.png";
 	local dir = 'NLAssets';
 
 	if not isfolder(dir) then
