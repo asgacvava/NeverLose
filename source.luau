@@ -3913,7 +3913,7 @@ function NeverLose:CreateWindow(Config)
 	WindowFrame.Size = Window.Size
 	WindowFrame.Active = true;
 
-	-- Floating Top Logo Decorator (inherits window movement)
+	-- Top Logo Decorator (Moves and fades with the window)
 	local TopLogoDecorator = Instance.new("ImageLabel")
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
@@ -3930,6 +3930,10 @@ function NeverLose:CreateWindow(Config)
 			ImageTransparency = visible and 0 or 1
 		})
 	end)
+
+	if not NeverLose.EnabledBlur then
+		WindowFrame.BackgroundTransparency = 0.0255
+	end;
 
 	local renderParentWindow = LPH_NO_VIRTUALIZE(function()
 		if Window.__3DRender then
