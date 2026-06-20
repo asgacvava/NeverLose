@@ -3943,7 +3943,7 @@ function NeverLose:CreateWindow(Config)
 	TopLogoDecorator.AnchorPoint = Vector2.new(0.5, 1)
 	
 	-- 2. Changed Y-offset to 30 (positive numbers push the logo down into the window frame)
-	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, 30) 
+	TopLogoDecorator.Position = UDim2.new(0.5, 0, 0, 60) 
 	
 	TopLogoDecorator.ZIndex = WindowFrame.ZIndex + 1
 	TopLogoDecorator.ImageTransparency = 0
