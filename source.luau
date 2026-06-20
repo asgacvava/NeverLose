@@ -3934,7 +3934,7 @@ function NeverLose:CreateWindow(Config)
 	local TopLogoDecorator = Instance.new("ImageLabel")
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
-	TopLogoDecorator.Image = NeverLose.GlobalLogo
+	TopLogoDecorator.Image = Config.Logo
 	TopLogoDecorator.ImageColor3 = NeverLose.IconColor
 	
 	-- 1. Changed size to 120x120 (adjust these two numbers to make it larger or smaller)
