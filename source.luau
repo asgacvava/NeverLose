@@ -3929,8 +3929,7 @@ function NeverLose:CreateWindow(Config)
 	WindowFrame.Size = Window.Size
 	WindowFrame.Active = true;
 
-	-- Top Logo Decorator (Moves and fades with the window)
-	-- Top Logo Decorator (Moves and fades with the window)
+	local TopLogoDecorator = Instance.new("ImageLabel")
 	TopLogoDecorator.Parent = WindowFrame
 	TopLogoDecorator.BackgroundTransparency = 1
 	TopLogoDecorator.Image = Config.Logo
