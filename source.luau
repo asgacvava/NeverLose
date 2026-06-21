@@ -203,7 +203,7 @@ NeverLose.MainColor = Color3.fromRGB(8, 8, 13);
 NeverLose.RegisiteryColor = {};
 NeverLose.NameRegisitry = {};
 NeverLose.IsMosueOverOtherFrame = false;
-NeverLose.GlobalLogo = "https://files.catbox.moe/p2p4qr.png";
+NeverLose.GlobalLogo = "https://files.catbox.moe/.png";
 NeverLose.ImageColorMapping = "rbxassetid://4155801252";
 
 if getcustomasset then
